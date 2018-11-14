@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    {{template "header"}}
+    <body>
+        {{template "nav"}}
+        <form id="form1" runat="server" input method="POST" enctype="multipart/form-data">
+            <div>
+                <!-- Page Content -->
+                <div class="container">
+                    <h1>Subscribe</h1>
+                    
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="first">
+                    <br>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="last">
+                    <br>
+                    <label for="sub">Email</label>
+                    <input type="text" id="email" name="email">
+                    <br>
+                    <label for="sub">Subscribed</label>
+                    <input type="checkbox" id="sub" name="subscribe">
+                    <br>
+                    <label for="sub">Avitar</label>
+                    <input type="file" name="avitar">
+                    <br>
+                    <input type="submit">
+                
+                    <br>
+
+                    {{if .}}
+                    <h1>BODY: {{.}}</h1>
+                    {{end}}
+                </div>
+                <!-- /.container -->
+
+            </div>
+
+            {{template "footer"}}
+        </form>
+    </body>
+</html>
