@@ -42,7 +42,13 @@ func main() {
 }
 
 func index(res http.ResponseWriter, req *http.Request) {
-	fmt.Println("index requested")
+	fmt.Println("index requested @ " + req.URL.Path)
+
+	if req.URL.Path != "/" {
+		http.NotFound(res, req)
+		return
+	}
+
 	err := tpl.ExecuteTemplate(res, "index.gohtml", nil)
 	if err != nil {
 		log.Fatalln("index template didn't execute: ", err)
